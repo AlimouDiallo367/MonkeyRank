@@ -1,0 +1,9 @@
+CREATE TABLE scores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    pseudo VARCHAR(50) NOT NULL,
+    wpm FLOAT NOT NULL,
+    accuracy FLOAT NOT NULL,
+    raw FLOAT NOT NULL,
+    consistency FLOAT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
