@@ -35,7 +35,7 @@
 <script>
     async function loadScores() {
         try {
-            const response = await fetch('http://localhost:4567/get-scores');
+            const response = await fetch('http://localhost:4567/scores');
             if (!response.ok) throw new Error('Erreur réseau');
             const scores = await response.json();
 
@@ -76,7 +76,7 @@
         const scoreData = { pseudo, wpm, accuracy, raw, consistency };
 
         try {
-            const response = await fetch('http://localhost:4567/add-score', {
+            const response = await fetch('http://localhost:4567/scores', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(scoreData),
@@ -102,3 +102,4 @@
 </script>
 
 <?php include 'footer.phtml'; ?>
+
