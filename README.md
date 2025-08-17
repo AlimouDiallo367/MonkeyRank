@@ -3,10 +3,10 @@ MonkeyRank est un leaderboard en temps-réel inspiré de MonkeyType, conçu pour
 
 ## Fonctionnalités
 - Classement dynamique mis à jour en temps réel
-- Interface au style Monkeytype pour une immersion immédiate 
-- Accessible sur tout le réseau du département 
-- Pensé pour la journée d'intégration et les compétitions internes
-
+- Interface au style Monkeytype 
+- Accessible sur le réseau du département 
+- Pensé pour la journée d'intégration et les éventuelles compétitions au cours de l'année.
+ 
 ## Crédits
 Développé par **Thierno Alimou Diallo** et **Yassine Amjahdi**
 
