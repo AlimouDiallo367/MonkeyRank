@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>MonkeyRanking</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="page pageLeaderboards">
+    <div class="content">
+      <div class="bigtitle">
+        <div class="bigtitle title">monkeyranking</div>
+        <div class="subtext">
+          <div class="text">Meilleurs résultats sur MonkeyType</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="titleAndButtons">
+        <div class="title timer"></div>
+        <div class="jumpButtons">
+          <div class="updating hidden"><i class="fas fa-circle-notch fa-spin"></i></div>
+        </div>
+      </div>
+      <div class="loading hidden"><i class="fas fa-circle-notch fa-spin"></i></div>
+      <div class="error hidden"><i class="fas fa-times"></i><p>Erreur de chargement</p></div>
+      <table>
+        <thead>
+          <tr>
+            <td>#</td>
+            <td>Nom</td>
+            <td class="stat narrow">WPM<div class="sub">Accuracy</div></td>
+            <td class="stat narrow">Raw<div class="sub">Consistency</div></td>
+            <td class="date">Date</td>
+          </tr>
+        </thead>
+        <tbody id="leaderboard-body"></tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

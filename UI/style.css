@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  font-family: "Roboto Mono", monospace;
+  background: #323437;
+  color: #d1d0c5;
+}
+
+.pageLeaderboards {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.content {
+  width: 90%;
+  max-width: 1000px;
+}
+
+.bigtitle {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.bigtitle .title {
+  font-size: 2.5rem;
+  font-weight: 500;
+  font-family: Varesa;
+}
+
+.bigtitle .text {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #d1d0c5;
+}
+.bigtitle .subtext {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.divider {
+  height: 1px;
+  background: #313336;
+  margin: 15px 0;
+}
+
+.titleAndButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.titleAndButtons .title {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+thead td {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  padding: 8px;
+  border-bottom: 1px solid #313336;
+}
+tbody td {
+  padding: 8px;
+  border-bottom: 1px solid #313336;
+}
+tbody tr:nth-child(odd) {
+  background: #2a2c2f;
+}
+
+.avatarNameBadge {
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  margin-right: 8px;
+}
+.userIcon {
+  color: #888;
+}
+
+.stat {
+  text-align: center;
+}
+.stat .sub {
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+.date {
+  text-align: right;
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+.loading,
+.error {
+  text-align: center;
+  margin: 10px 0;
+}
+.hidden {
+  display: none;
+}
+
+@font-face {
+  font-family: 'Varesa';
+  src: url(fonts/Varela/Varela-Regular.woff2) format('woff2');
+  src: url(fonts/Varela/Varela-Regular.ttf) format('truetype');
+}
