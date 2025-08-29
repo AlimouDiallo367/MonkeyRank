@@ -1,4 +1,5 @@
 # MonkeyRank 
+![icon](assets/icon_full.png)
 MonkeyRank est un leaderboard en temps-réel inspiré de MonkeyType, conçu pour afficher et classer les vitesses de frappes (WPM) des étudiants du département d'info. 
 
 ## Fonctionnalités
