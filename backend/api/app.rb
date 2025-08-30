@@ -27,18 +27,22 @@ DB = Mysql2::Client.new(
 
 class MySinatraApp < Sinatra::Base
     set :bind, "0.0.0.0"
+
+    # Servir le frontend statique
+    set :public_folder, File.expand_path("../../frontend/UI", __dir__)
+
     configure :development do 
         register Sinatra::Reloader
     end 
 
     before do
-        content_type :json
+        # content_type :json
         headers "Access-Control-Allow-Origin" => "*" # Combo Apache + Sinatra 
     end
 
-    get "/" do 
-        return "Bienvenue sur Monkey Rank".to_json
-    end 
+    # get "/" do 
+    #     return "Bienvenue sur Monkey Rank".to_json
+    # end 
     
     get "/scores" do 
         results = DB.query("SELECT * FROM scores ORDER BY wpm DESC, accuracy DESC LIMIT 50")
@@ -66,6 +70,11 @@ class MySinatraApp < Sinatra::Base
         response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
         response.headers["Access-Control-Allow-Headers"] = "Content-Type"
         200
+    end
+
+    # Route par défaut : index.html
+    get "/" do
+        send_file File.join(settings.public_folder, "index.html")
     end
 
     run! if app_file == $0

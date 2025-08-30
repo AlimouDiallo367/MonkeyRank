@@ -56,11 +56,35 @@ javascript:(function(){
     return{page:"profile",results};
   }
 
+  function sendToBackend(score){
+    fetch("http://localhost:4567/scores",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        pseudo:"TestUser",
+        wpm:parseFloat(score.wpm),
+        accuracy:parseFloat(score.acc),
+        raw:parseFloat(score.raw),
+        consistency:parseFloat(score.cons)
+      })
+    })
+    .then(res=>res.json())
+    .then(resp=>{
+      console.log("Réponse API:",resp);
+      showToast("Score envoyé ✅");
+    })
+    .catch(err=>{
+      console.error("Erreur:",err);
+      showToast("Erreur lors de l'envoi ❌");
+    });
+  }
+
   let r=document.getElementById("result"),data;
   if(r && !r.classList.contains("hidden")){
     data=onResultPage();
     console.log("Collected:",data);
     showToast("Résultat enregistré : "+data.wpm);
+    sendToBackend(data);
   }
   else if(r && r.classList.contains("hidden") && document.querySelector(".allBadges")){
     data=onProfilePage();
