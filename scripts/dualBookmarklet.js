@@ -24,13 +24,23 @@ javascript:(function(){
     setTimeout(()=>{toast.remove();},3200);
   }
 
+  function getPseudo(){
+    let fromPage=document.querySelector(".userProfile .username, .textButton.userProfile")?.innerText;
+    if(fromPage){localStorage.setItem("pseudo",fromPage);return fromPage;}
+    let saved=localStorage.getItem("pseudo");
+    if(saved){return saved;}
+    let entered=prompt("Entre ton pseudo MonkeyRank :");
+    if(entered){localStorage.setItem("pseudo",entered);return entered;}
+    return "Inconnu";
+  }
+
   function onResultPage(){
     function get(sel){let el=document.querySelector(sel);return el?el.getAttribute("aria-label"):null;}
     let wpm=get(".group.wpm .bottom");
     let raw=get(".group.raw .bottom");
     let acc=get(".group.acc .bottom");
     let cons=get(".group.consistency .bottom");
-    let time=get(".group.time .bottom"); if(time){time=time.split(" ")[0];}
+    let time=get(".group.time .bottom");if(time){time=time.split(" ")[0];}
     let idEl=document.querySelector(".textButton.editTagsButton[data-result-id]");
     let id=idEl?idEl.getAttribute("data-result-id"):null;
     return{page:"result",wpm,raw,acc,cons,time,id};
@@ -57,11 +67,12 @@ javascript:(function(){
   }
 
   function sendToBackend(score){
+    let pseudo=getPseudo();
     fetch("http://localhost:4567/scores",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({
-        pseudo:"TestUser",
+        pseudo:pseudo,
         wpm:parseFloat(score.wpm),
         accuracy:parseFloat(score.acc),
         raw:parseFloat(score.raw),
@@ -71,7 +82,7 @@ javascript:(function(){
     .then(res=>res.json())
     .then(resp=>{
       console.log("Réponse API:",resp);
-      showToast("Score envoyé ✅");
+      showToast("Score envoyé pour "+pseudo+" ✅");
     })
     .catch(err=>{
       console.error("Erreur:",err);
