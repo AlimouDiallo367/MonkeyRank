@@ -1,0 +1,109 @@
+body {
+    font-family: 'JetBrains Mono', monospace;
+    background: #313336;
+    color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.pageOnboarding {
+    background: #323437;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 40rem;
+    width: 90%;
+}
+
+.pop-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    color: #0b66c3;
+    text-decoration: none;
+    border: 2px dashed #0b66c3;
+    border-radius: 8px;
+    position: relative;
+    animation: pulse 1.5s infinite;
+}
+
+.pop-link:hover {
+    color: #004080;
+    border-color: #004080;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(11, 102, 195, 0.4);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(11, 102, 195, 0.6);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(11, 102, 195, 0.4);
+    }
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.formGroup {
+    margin-bottom: 1rem;
+}
+
+input {
+    width: 95%;
+    padding: 0.6rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid;
+    font-size: 1rem;
+}
+
+button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    border: none;
+    background: #323437;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #4a4a4a;
+}
+
+#bookmarkletLink {
+    display: none;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #0b66c3;
+    text-decoration: none;
+}
+
+#bookmarkletLink:hover {
+    text-decoration: underline;
+}
+
+.feedback {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}

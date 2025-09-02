@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <title>MonkeyRank - Onboarding</title>
-  <link rel="stylesheet" href="../css/style.css">
-  <script defer src="../js/onboarding.js"></script>
+  <link rel="stylesheet" href="../css/onboarding.css">
+  <script src="../js/onboarding.js"></script>
+  <link rel="icon" href="../assets/favicon.ico">
+  
 </head>
+
 <body>
   <div class="page pageOnboarding">
-    <div class="content">
-      <h1>Bienvenue sur MonkeyRank !</h1>
-      <p>Pour commencer, indiquez votre pseudo MonkeyType ou créez-en un pour ce leaderboard :</p>
-      
-      <div class="formGroup">
-        <label for="pseudo">Pseudo :</label>
-        <input type="text" id="pseudo" placeholder="Ex : Thalimoud" />
-      </div>
+    <h1><a id="loadUserScript" href="https://raw.githubusercontent.com/AlimouDiallo367/MonkeyRank/refs/heads/main/scripts/observer.user.js" style="all:unset;cursor:pointer;">Bienvenue</a> sur <a id="resetLocalStorage" href="#" style="all:unset;cursor:pointer;">MonkeyRank</a> !</h1>
+    <p>Pour commencer, indiquez le nom que vous souhaitez avoir sur le classement :</p>
 
-      <div class="formGroup">
-        <button id="savePseudo">Valider</button>
-      </div>
-
-      <div class="feedback hidden" id="feedback"></div>
+    <div class="formGroup">
+      <input type="text" id="pseudo" placeholder="Ex : Thalimoud" />
     </div>
+
+    <div class="formGroup">
+      <button id="savePseudo">Valider</button>
+    </div>
+
+    <div class="feedback hidden" id="feedback"></div>
+
+    <a id="bookmarkletLink" class="pop-link" href="#">Glissez-moi dans votre barre des favoris !</a>
   </div>
 </body>
+
 </html>
