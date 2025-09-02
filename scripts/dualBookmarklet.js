@@ -110,7 +110,7 @@ javascript: (function () {
       };
     }
 
-    fetch("http://localhost:4567/scores", {
+    fetch("http://172.22.215.114:4567/scores", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
