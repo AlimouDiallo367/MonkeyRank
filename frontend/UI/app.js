@@ -8,7 +8,8 @@ async function loadLeaderboard() {
   tbody.innerHTML = '';
 
   try {
-    const res = await fetch('/api/leaderboard');
+    // const res = await fetch('/api/leaderboard');
+    const res = await fetch('/scores');
     if (!res.ok) throw new Error("Réponse serveur invalide");
     const data = await res.json();
 
@@ -19,12 +20,12 @@ async function loadLeaderboard() {
         <td>
           <div class="avatarNameBadge">
             <div class="avatar"><div class="userIcon"><i class="fas fa-user-circle"></i></div></div>
-            <div class="name">${entry.name}</div>
+            <div class="name">${entry.pseudo}</div>
           </div>
         </td>
         <td>${entry.wpm.toFixed(2)}<div class="sub">${entry.accuracy.toFixed(2)}%</div></td>
         <td>${entry.raw.toFixed(2)}<div class="sub">${entry.consistency.toFixed(2)}%</div></td>
-        <td>${new Date(entry.date).toLocaleString('fr-FR')}</td>
+        <td>${new Date(entry.created_at).toLocaleString('fr-FR')}</td>
       `;
       tbody.appendChild(tr);
     });
