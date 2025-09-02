@@ -30,7 +30,7 @@ async function loadLeaderboard() {
         <td>
           <div class="avatarNameBadge">
             <div class="avatar"><div class="userIcon"><i class="fas fa-user-circle"></i></div></div>
-            <div class="name">${entry.pseudo}</div>
+             <a href="/user/${entry.pseudo}" class="user-link">${entry.pseudo}</a>
           </div>
         </td>
         <td>${entry.wpm.toFixed(2)}<div class="sub">${entry.accuracy.toFixed(2)}%</div></td>

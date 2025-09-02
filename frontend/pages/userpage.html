@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>MonkeyRank - Profil utilisateur</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script defer src="../js/userpage.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="page pageUser">
+    <div class="content">
+      <div class="bigtitle">
+        <div class="bigtitle title" id="user-pseudo"></div>
+        <div class="subtext">
+          <div class="text">Historique des performances</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="loading hidden"><i class="fas fa-circle-notch fa-spin"></i></div>
+      <div class="error hidden"><i class="fas fa-times"></i><p>Erreur de chargement</p></div>
+
+      <table>
+        <thead>
+          <tr>
+            <td>#</td>
+            <td>WPM<div class="sub">Accuracy</div></td>
+            <td>Raw<div class="sub">Consistency</div></td>
+            <td>Date</td>
+          </tr>
+        </thead>
+        <tbody id="user-scores-body"></tbody>
+      </table>
+
+      <footer class="footer">
+        <p>Inspiré par <a href="https://monkeytype.com" target="_blank">Monkeytype</a> — 
+        Créé par <strong>AlimouDiallo367</strong> & <strong>DeltaGarnet</strong></p>
+        <a href="https://github.com/AlimouDiallo367/MonkeyRank" target="_blank" class="github-link">
+          <i class="fab fa-github"></i> Source 
+        </a>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
+
