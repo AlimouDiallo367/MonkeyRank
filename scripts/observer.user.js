@@ -9,8 +9,8 @@
 // @grant        none
 // ==/UserScript==
 
-(function () {
-  "use strict";
+(function() {
+  'use strict';
 
   function showToast(msg) {
     let toast = document.createElement("div");
@@ -29,7 +29,7 @@
       opacity: "0",
       transition: "opacity 0.4s ease, transform 0.4s ease",
       zIndex: "9999",
-      pointerEvents: "none",
+      pointerEvents: "none"
     });
     document.body.appendChild(toast);
     requestAnimationFrame(() => {
@@ -57,7 +57,7 @@
   }
 
   function collectResult() {
-    let get = (sel) => {
+    let get = sel => {
       let el = document.querySelector(sel);
       return el ? el.getAttribute("aria-label") : null;
     };
@@ -66,9 +66,7 @@
     let acc = get(".group.acc .bottom");
     let cons = get(".group.consistency .bottom");
     let time = get(".group.time .bottom");
-    let idEl = document.querySelector(
-      ".textButton.editTagsButton[data-result-id]"
-    );
+    let idEl = document.querySelector(".textButton.editTagsButton[data-result-id]");
     let id = idEl ? idEl.getAttribute("data-result-id") : null;
     if (time) time = time.split(" ")[0];
     return { wpm, raw, acc, cons, time };
@@ -76,26 +74,26 @@
 
   function sendToBackend(score) {
     let prenom = getPrenom();
-    fetch("http://172.22.215.114:4567/scores", {
+    fetch("http://216.128.184.35/scores", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        prenom: prenom,
-        wpm: parseFloat(score.wpm),
-        accuracy: parseFloat(score.acc),
-        raw: parseFloat(score.raw),
-        consistency: parseFloat(score.cons),
-        time: score.time,
-        mode: score.mode,
-        id: score.id,
-      }),
-    })
-      .then((res) => res.json())
-      .then((resp) => {
-        console.log("Réponse API:", resp);
-        showToast("Score envoyé pour " + prenom + " : " + score.wpm);
+       body: JSON.stringify({
+          pseudo: prenom,
+          wpm: parseFloat(score.wpm),
+          accuracy: parseFloat(score.acc),
+          raw: parseFloat(score.raw),
+          consistency: parseFloat(score.cons),
+          time: score.time,
+          mode: score.mode,
+          id: score.id
       })
-      .catch((err) => {
+    })
+      .then(res => res.json())
+      .then(resp => {
+        console.log("Réponse API:", resp);
+        showToast("Score envoyé pour " + prenom+ " : "+score.wpm );
+      })
+      .catch(err => {
         console.error("Erreur:", err);
         showToast("Erreur lors de l'envoi ❌");
       });
@@ -115,6 +113,7 @@
 
       observer.observe(r, { attributes: true, attributeFilter: ["class"] });
     }
+
   }
 
   monitorResult();
