@@ -8,15 +8,25 @@ async function loadLeaderboard() {
   tbody.innerHTML = '';
 
   try {
-    // const res = await fetch('/api/leaderboard');
     const res = await fetch('/scores');
     if (!res.ok) throw new Error("Réponse serveur invalide");
     const data = await res.json();
 
     data.forEach((entry, i) => {
+      let rankDisplay;
+      if (i === 0) {
+        rankDisplay = '<i class="fas fa-crown" style="color:#facc15;"></i>'; // or (jaune)
+      } else if (i === 1) {
+        rankDisplay = '<i class="fas fa-medal" style="color:#9ca3af;"></i>'; // argent (gris)
+      } else if (i === 2) {
+        rankDisplay = '<i class="fas fa-medal" style="color:#d97706;"></i>'; // bronze (orange)
+      } else {
+        rankDisplay = i + 1;
+      }
+
       const tr = document.createElement('tr');
       tr.innerHTML = `
-        <td>${i + 1}</td>
+        <td>${rankDisplay}</td>
         <td>
           <div class="avatarNameBadge">
             <div class="avatar"><div class="userIcon"><i class="fas fa-user-circle"></i></div></div>

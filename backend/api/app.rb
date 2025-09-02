@@ -40,14 +40,29 @@ class MySinatraApp < Sinatra::Base
         headers "Access-Control-Allow-Origin" => "*" # Combo Apache + Sinatra 
     end
 
-    # get "/" do 
-    #     return "Bienvenue sur Monkey Rank".to_json
-    # end 
-
     # Route par défaut : index.html
     get "/" do
         send_file File.join(settings.public_folder, "index.html")
     end
+
+    get "/onboarding" do
+        send_file File.join(settings.public_folder, "onboarding.html")
+    end
+
+    get "/user/:pseudo" do
+        pseudo = params[:pseudo]
+        # Ici tu peux servir une page userpage.html
+        send_file File.join(settings.public_folder, "userpage.html")
+    end
+
+    get "/api/user/:pseudo" do
+        content_type :json
+        pseudo = params[:pseudo]
+        result = DB.query("SELECT * FROM scores WHERE pseudo = ? ORDER BY wpm DESC LIMIT 50", pseudo)
+        result.to_a.to_json
+    end
+
+
     
     get "/scores" do 
         content_type :json

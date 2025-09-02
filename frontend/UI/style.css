@@ -111,3 +111,79 @@ tbody tr:nth-child(odd) {
   src: url(fonts/Varela/Varela-Regular.woff2) format('woff2');
   src: url(fonts/Varela/Varela-Regular.ttf) format('truetype');
 }
+
+
+/* --- Amélioration du tableau --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+thead td {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  padding: 10px;
+  border-bottom: 2px solid #444;
+  background: #2a2c2f;
+  font-weight: 600;
+  color: #eee;
+}
+
+tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #313336;
+}
+
+tbody tr:nth-child(odd) {
+  background: #2a2c2f;
+}
+tbody tr:hover {
+  background: #3a3c3f;
+  transition: background 0.2s ease;
+}
+
+/* --- Footer --- */
+.footer {
+  margin-top: 20px;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #aaa;
+  border-top: 1px solid #313336;
+}
+.footer a {
+  color: #d1d0c5;
+  text-decoration: none;
+}
+.footer a:hover {
+  color: #fff;
+}
+.github-link {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+.github-link i {
+  margin-right: 5px;
+}
+
+thead th {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  padding: 10px;
+  border-bottom: 2px solid #444;
+  background: #2a2c2f;
+  font-weight: 600;
+  color: #eee;
+  text-align: left;
+}
+
+.stat {
+  text-align: center;
+}
+.date {
+  text-align: right;
+}
