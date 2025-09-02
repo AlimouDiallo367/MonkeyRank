@@ -5,6 +5,7 @@
 // @description  Envoie automatiquement les résultats de Monkeytype à MonkeyRank
 // @author       DeltaGarnet & AlimouDiallo367
 // @match        https://monkeytype.com/*
+// @updateURL    https://raw.githubusercontent.com/AlimouDiallo367/MonkeyRank/refs/heads/main/scripts/observer.user.js
 // @grant        none
 // ==/UserScript==
 
